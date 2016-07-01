@@ -29,24 +29,32 @@ public:
 	CIniFile(std::string FileName);
 	~CIniFile(void);
 
+	//---------------------------------------------set----------------------------------------
+	//string
+	bool SetValueString(std::string KeyName, std::string Value, std::string SectionName);
+	//int
+	bool SetValueInt(std::string KeyName, int Value, std::string SectionName);
+	//float
+	bool SetValuefloat(std::string KeyName, float Value, std::string SectionName);
+
+	//---------------------------------------------get----------------------------------------
 	//获取所有的SectionName
     std::list<std::string> GetSectionNames();
 
     std::list<Record>      GetSection(std::string SectionName);
     std::list<Record>      GetRecord(std::string KeyName, std::string SectionName);
-    std::string            GetValueString(std::string KeyName, std::string SectionName);
-	int                    GetValueInt(std::string KeyName, std::string SectionName);
-	int                    GetValueInt(std::string KeyName, std::string SectionName, int defaultValue);
-    std::string            Content();
-
+    std::string                 GetValueString(std::string KeyName, std::string SectionName);
+	std::string                 GetValueString(std::string KeyName, std::string SectionName, std::string defaultValue);
+	int                            GetValueInt(std::string KeyName, std::string SectionName);
+	int                            GetValueInt(std::string KeyName, std::string SectionName, int defaultValue);
+	float                         GetValuefloat(std::string KeyName, std::string SectionName, float defaultValue);
+    
+	
+	
+	std::string            Content();
     bool SectionExists(std::string SectionName);
     bool RecordExists(std::string KeyName, std::string SectionName);
-
     bool AddSection(std::string SectionName);
-	//string
-    bool SetValueString(std::string KeyName, std::string Value, std::string SectionName);
-	//int
-	bool SetValueInt(std::string KeyName, int Value, std::string SectionName);
 
     bool DeleteSection(std::string SectionName);
     bool DeleteRecord(std::string KeyName, std::string SectionName);

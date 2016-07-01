@@ -19,6 +19,7 @@ int Test()
 	inifile.SetValueInt("Port1", 11, "clzhan3");
 	inifile.SetValueInt("Port1", 11, "clzhan4");
 	inifile.SetValueInt("Port1", 11, "clzhan5");
+	inifile.SetValuefloat("Port2", 1.1, "clzhan5");
 	//inifile.SetValueInt("Port2", 11, "clzhan");
 	//inifile.SetValueInt("Port3", 11, "clzhan");
 	//inifile.SetValueInt("Port4", 11, "clzhan");

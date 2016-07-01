@@ -276,6 +276,16 @@ list<CIniFile::Record> CIniFile::GetRecord(string KeyName, string SectionName)
     return data;															// Return the Record
 }
 
+string CIniFile::GetValueString(std::string KeyName, std::string SectionName, std::string defaultValue)
+{
+	list<Record> record = GetRecord(KeyName, SectionName);	    // Get the Record
+
+	if (!record.empty())													                   // Make sure there is a value to return
+		return record.front().Value;										              // And return the value
+
+	return defaultValue;																// No value was found, return default
+}
+
 string CIniFile::GetValueString(string KeyName, string SectionName)
 {
     list<Record> record = GetRecord(KeyName, SectionName);	    // Get the Record
@@ -312,6 +322,20 @@ int CIniFile::GetValueInt(std::string KeyName, std::string SectionName,int defau
 	}
 
 	return defaultValue;																// No value was found
+}
+float   CIniFile::GetValuefloat(std::string KeyName, std::string SectionName, float defaultValue)
+{
+	list<Record> record = GetRecord(KeyName, SectionName);	                // Get the Record
+
+	float num = -1;
+
+	if (!record.empty())												    // Make sure there is a value to return
+	{
+		num = convert<float>(record.front().Value);
+		return num;                                                         // And return the value
+	}
+
+	return defaultValue;
 }
 
 string CIniFile::Content()
@@ -400,7 +424,49 @@ bool CIniFile::AddSection(string SectionName)
 
     return false;															// The file did not open
 }
+bool CIniFile::SetValuefloat(std::string KeyName, float Value, std::string SectionName)
+{
+	string str_num = convert<string>(Value);
+	list<Record> content;												    // Holds the current record
 
+	if (Load(_FileName, content))											// Make sure the file is loaded
+	{
+		if (!SectionExists(SectionName))						    // If the Section doesn't exist
+		{
+			Record s = { "", ' ', SectionName, "", "" };					// Define a new section
+			Record r = { "", ' ', SectionName, KeyName, str_num };			// Define a new record
+
+			content.push_back(s);											// Add the section
+			content.push_back(r);											// Add the record
+
+			return Save(_FileName, content);								    // Save
+		}
+
+		if (!RecordExists(KeyName, SectionName))				             // If the Key doesn't exist
+		{
+			Record r = { "", ' ', SectionName, KeyName, str_num };			// Define a new record
+
+			list<Record>::reverse_iterator r_iter = find_if(
+				content.rbegin(), content.rend(),
+				CIniFile::RecordSectionIs(SectionName));					// Locate the Section
+			list<Record>::iterator iter = r_iter.base();
+			content.insert(iter, r);											// Add the record
+
+			return Save(_FileName, content);								    // Save
+		}
+
+		list<Record>::iterator iter = find_if(
+			content.begin(), content.end(),
+			CIniFile::RecordSectionKeyIs(SectionName, KeyName));	        // Locate the Record
+
+		iter->Value = str_num;												// Insert the correct value
+
+		return Save(_FileName, content);									    // Save
+	}
+
+	return false;															// In the event the file does not load
+
+}
 bool CIniFile::SetValueInt(std::string KeyName, int Value, std::string SectionName)
 {
 	string str_num = convert<string>(Value);

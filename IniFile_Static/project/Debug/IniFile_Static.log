@@ -1,16 +1,19 @@
-﻿生成启动时间为 2016/6/13 9:43:28。
-     1>项目“D:\work\ini_file\IniFile-master\IniFile_Static\project\IniFile_Static.vcxproj”在节点 2 上(Build 个目标)。
+﻿生成启动时间为 2016/7/1 14:47:03。
+     1>项目“E:\github\inifile\IniFile_Static\project\IniFile_Static.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"d:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\IniFile.cpp ..\test\TestIniFile.cpp
-         TestIniFile.cpp
          IniFile.cpp
          正在生成代码...
+         正在编译...
+         TestIniFile.cpp
+     1>e:\github\inifile\inifile_static\test\testinifile.cpp(22): warning C4305: “参数”: 从“double”到“float”截断
+         正在生成代码...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\work\ini_file\IniFile-master\Debug\IniFile_Static.exe" /INCREMENTAL /NOLOGO /LIBPATH:"d:\Program Files (x86)\Visual Leak Detector\lib\Win32" odbc32.lib odbccp32.lib vld.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\work\ini_file\IniFile-master\Debug\IniFile_Static.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\work\ini_file\IniFile-master\Debug\IniFile_Static.lib" /MACHINE:X86 /SAFESEH Debug\IniFile.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\github\inifile\Debug\IniFile_Static.exe" /INCREMENTAL /NOLOGO /LIBPATH:"d:\Program Files (x86)\Visual Leak Detector\lib\Win32" odbc32.lib odbccp32.lib vld.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\github\inifile\Debug\IniFile_Static.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\github\inifile\Debug\IniFile_Static.lib" /MACHINE:X86 /SAFESEH Debug\IniFile.obj
          Debug\TestIniFile.obj
-         IniFile_Static.vcxproj -> D:\work\ini_file\IniFile-master\Debug\IniFile_Static.exe
-     1>已完成生成项目“D:\work\ini_file\IniFile-master\IniFile_Static\project\IniFile_Static.vcxproj”(Build 个目标)的操作。
+         IniFile_Static.vcxproj -> E:\github\inifile\Debug\IniFile_Static.exe
+     1>已完成生成项目“E:\github\inifile\IniFile_Static\project\IniFile_Static.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:01.46
+已用时间 00:00:01.24
